@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "wrangler pages dev --compatibility-date=2023-01-01 ./pages",
+    "dev": "wrangler pages dev dist --live-reload",
+    "build": "esbuild --bundle src/server.ts --format=esm --outfile=dist/_worker.js",
     "deploy": "wrangler pages deploy ./pages"
   },
   "dependencies": {
