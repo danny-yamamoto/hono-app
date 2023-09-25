@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { Page } from './pages/page'
 import { Top } from './pages/top'
 import { Experience } from './pages/experience'
+import { Articles } from './pages/articles'
 
 const app = new Hono()
 
@@ -26,6 +27,12 @@ export type iExperience = {
   company: string;
   position: string;
 }
+
+export type iArticles = {
+  title: string;
+  url: string;
+  id: string;
+};
 
 // Logic
 const getPosts = () => posts
@@ -55,6 +62,17 @@ const getExperience = () => {
   return experience;
 }
 
+const getArticles = async (count: number): Promise<iArticles[]> => {
+  const response = await fetch(`https://qiita.com/api/v2/users/daisuke-yamamoto/items?page=1&per_page=${count}`);
+  const qiitaItems: any[] = await response.json();
+  const articles: iArticles[] = qiitaItems.map(item => ({
+    title: item.title,
+    url: item.url,
+    id: item.id,
+  }));
+  return articles;
+} 
+
 // Controller
 app.get('/', (c) => {
   const posts = getPosts()
@@ -71,6 +89,11 @@ app.get('/post/:id{[0-9]+}', (c) => {
 app.get('/experience/', (c) => {
   const experience = getExperience()
   return c.html(<Experience title="Experience" detail={experience}/>)
+})
+
+app.get('/articles/', async (c) => {
+  const articles = await getArticles(20)
+  return c.html(<Articles title='Top 20 Articles' detail={articles} />)
 })
 
 app.fire()
