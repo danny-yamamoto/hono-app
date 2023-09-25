@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#intro {
+    background-color: #333;
+    color: #fff;
+}
+
+#articles {
+    background-color: #ddd;
+}
+
+h1, h2 {
+    margin: 0 0 20px;
+    border-bottom: 2px solid #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 0px;
+}
+
+a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #0077cc;
+}
+
+.repo-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);  /* 小さな画面のデフォルトは1列 */
+    gap: 15px;
+}
+
+.repo-tile {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.repo-tile:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.repo-name {
+    font-size: 1.0em;
+    margin-top: 0;
+    line-height: 1;
+}
+
+.repo-description {
+    color: #555;
+    margin: 1px 0;
+    line-height: 1;
+    font-size: 0.8em;
+}
+
+.repo-link {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.repo-link:hover {
+    text-decoration: underline;
+}
+
+/* 中間の画面サイズでのスタイル */
+@media (min-width: 600px) {
+    .repo-container {
+        grid-template-columns: repeat(2, 1fr);  /* 2列 */
+    }
+}
+
+/* 大きな画面サイズでのスタイル */
+@media (min-width: 900px) {
+    .repo-container {
+        grid-template-columns: repeat(3, 1fr);  /* 3列 */
+    }
+}
