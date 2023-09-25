@@ -10,6 +10,10 @@ const Experience = () => (
   <h2><a href={`/experience/`}>Experience</a></h2>
 )
 
+const Articles = () => (
+  <h2><a href={`/articles/`}>Top 20 Articles</a></h2>
+)
+
 export const Top = (props: { posts: Post[] }) => {
   return (
     <Layout title={'Top'}>
@@ -21,6 +25,7 @@ export const Top = (props: { posts: Post[] }) => {
           ))}
         </ul>
         <Experience />
+        <Articles />
       </main>
     </Layout>
   )
