@@ -21,11 +21,38 @@ const posts: Post[] = [
   { id: '6', title: 'こんばんわ', body: '寝ます' },
 ]
 
+export type iExperience = {
+  id: string;
+  company: string;
+  position: string;
+}
+
 // Logic
 const getPosts = () => posts
 
 const getPost = (id: string) => {
   return posts.find((post) => post.id == id)
+}
+
+const getExperience = () => {
+  const experience: iExperience[] = [
+    {
+        id: '2022-09',
+        company: 'Retail AI X Inc.',
+        position: 'Lead Engineer',
+    },
+    {
+        id: '2021-06',
+        company: 'Retail AI X Inc.',
+        position: 'Software Engineer',
+    },
+    {
+        id: '2020-06',
+        company: 'Retail AI Engineering Inc.',
+        position: 'Software Engineer',
+    }
+  ]
+  return experience;
 }
 
 // Controller
@@ -42,7 +69,8 @@ app.get('/post/:id{[0-9]+}', (c) => {
 })
 
 app.get('/experience/', (c) => {
-  return c.html(<Experience />)
+  const experience = getExperience()
+  return c.html(<Experience title="Experience" detail={experience}/>)
 })
 
 app.fire()
