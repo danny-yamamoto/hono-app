@@ -1,5 +1,6 @@
 import { Layout } from '../components/Layout'
 import type { Post } from '../index'
+import { Footer } from './footer'
 
 const List = (props: { post: Post }) => (
   <li>
@@ -26,6 +27,7 @@ export const Top = (props: { posts: Post[] }) => {
         </ul>
         <Experience />
         <Articles />
+        <Footer />
       </main>
     </Layout>
   )
