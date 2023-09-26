@@ -8,11 +8,11 @@ const List = (props: { post: Post }) => (
   </li>
 )
 const Experience = () => (
-  <h2><a href={`/experience/`}>Experience</a></h2>
+  <h2><a style="color: #fff;" href={`/experience/`}>Experience</a></h2>
 )
 
 const Articles = () => (
-  <h2><a href={`/articles/`}>Top 20 Articles</a></h2>
+  <h2><a style="color: #fff;" href={`/articles/`}>Top 20 Articles</a></h2>
 )
 
 export const Top = (props: { posts: Post[] }) => {
@@ -27,7 +27,7 @@ export const Top = (props: { posts: Post[] }) => {
         </ul>
         <Experience />
         <Articles />
-        <Footer />
+        <Footer title='Daisuke Yamamoto' />
       </main>
     </Layout>
   )
