@@ -3,6 +3,7 @@ import { Page } from './pages/page'
 import { Top } from './pages/top'
 import { Experience } from './pages/experience'
 import { Articles } from './pages/articles'
+//import { serveStatic } from 'hono/cloudflare-workers'
 
 const app = new Hono()
 
